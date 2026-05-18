@@ -583,6 +583,107 @@
           
           <li class="md-meta__item">
             
+              このページは約2分で読めます
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="ai"><a class="toclink" href="2026/05/18/ai-blog-workflow/">AIを使ってブログ記事を書くときの安全なワークフロー</a></h2>
+<h3 id="_1"><a class="toclink" href="2026/05/18/ai-blog-workflow/#_1">概要</a></h3>
+<p>AIを使うと、ブログ記事のテーマ整理や下書き作成を効率化できます。一方で、AIの出力には誤った情報、存在しない出典、確認が必要な内容が含まれることがあります。</p>
+<p>この記事では、AIで記事を書くときに、調査メモ、下書き、公開用の記事を分けて管理する考え方をまとめます。前提は、AIの出力をそのまま公開するのではなく、人間が内容を確認してから公開する運用です。</p>
+<h3 id="_2"><a class="toclink" href="2026/05/18/ai-blog-workflow/#_2">本文</a></h3>
+<h4 id="ai_1"><a class="toclink" href="2026/05/18/ai-blog-workflow/#ai_1">AIの出力は確認を前提に扱う</a></h4>
+<p>AIは文章作成の助けになりますが、出力が常に正しいとは限りません。OpenAIは、ChatGPTなどの言語モデルが誤った情報や誤解を招く内容を生成する場合があり、存在しない引用や出典を示すこともあると説明しています。</p>
+<p>そのため、AIを使って記事を作るときは、出力された文章をそのまま公開するのではなく、重要な情報を信頼できる情報源で確認する必要があります。特に、出典、日付、仕様、制度、公開範囲など、変わる可能性がある情報は注意して扱います。</p>
+<h4 id="_3"><a class="toclink" href="2026/05/18/ai-blog-workflow/#_3">調査メモ、下書き、公開記事を分ける</a></h4>
+<p>未確認情報の混入を減らすには、作業中の情報と公開用の情報を分けておくことが重要です。</p>
+<p>このブログの運用では、主に次の場所を使い分けます。</p>
+<ul>
+<li><code>research/</code>：調査メモ、出典、確認日、未確認事項を残す場所</li>
+<li><code>drafts/</code>：AI生成文や編集中の下書きを置く場所</li>
+<li><code>docs/</code>：公開できる内容だけを置く場所</li>
+<li><code>docs/blog/posts/</code>：最終的に公開するブログ記事だけを置く場所</li>
+</ul>
+<p>記事の事実関係は、<code>research/</code> にある調査メモを根拠にします。下書きを作るときも、<code>research/</code> にない事実は追加しません。AIが自然な文章を出していても、根拠が確認できない内容は本文に混ぜず、確認が必要な項目として分けます。</p>
+<h4 id="research"><a class="toclink" href="2026/05/18/ai-blog-workflow/#research"><code>research/</code> には根拠を残す</a></h4>
+<p><code>research/</code> には、記事本文の材料になる情報を整理します。出典URL、確認日、要点、未確認事項を分けて残しておくと、あとから「この記述は何を根拠にしているのか」を確認しやすくなります。</p>
+<p>AIの出力を調査メモに使う場合でも、出力内容だけを根拠にはしません。公式情報や一次情報を確認し、確認できた内容と確認できていない内容を分けます。</p>
+<p>NISTの生成AI向けリスク管理フレームワーク・プロファイルでは、生成AIが出力した情報の正確性や真実性を確認するためのファクトチェック、コンテンツの来歴や変更履歴の管理、人間によるレビューやモデレーションが示されています。ブログ記事の運用に置き換えると、出典や確認結果を残すことは、公開前に確認すべき内容を整理する助けになります。</p>
+<h4 id="drafts"><a class="toclink" href="2026/05/18/ai-blog-workflow/#drafts"><code>drafts/</code> は公開前の作業場所にする</a></h4>
+<p><code>drafts/</code> は、AI生成文や編集中の文章を置く場所です。ここにある文章は、公開前の確認・編集を前提にしたものです。</p>
+<p>下書きでは、文章の流れや読みやすさを整えます。ただし、読みやすくするために、調査メモにない事実を足してはいけません。未確認の内容、推測、変動しやすい情報は、本文に混ぜずに「要確認」として分けます。</p>
+<p>この段階で大切なのは、記事らしい文章にすることと、確認できていない情報を公開用本文に混ぜないことを両立することです。</p>
+<h4 id="docs"><a class="toclink" href="2026/05/18/ai-blog-workflow/#docs"><code>docs/</code> には公開できる内容だけを置く</a></h4>
+<p>MkDocsでは、<code>mkdocs.yml</code> と <code>docs/</code> フォルダが基本構成として使われます。MkDocsのドキュメントでは、<code>docs/</code> がドキュメントディレクトリの既定値であり、<code>docs/</code> 配下のMarkdownファイルからページが生成されると説明されています。</p>
+<p>また、MkDocsのドキュメントでは、ナビゲーションに含めていないページでも、ビルドされたサイトに含まれ、直接リンクされる可能性があると説明されています。Markdown以外のファイルも、ドキュメントディレクトリ内にある場合はビルド後のサイトへコピーされるとされています。</p>
+<p>GitHub Docsでは、GitHub Pagesのサイトはインターネット上で公開され、リポジトリが非公開であってもPagesサイト自体は公開され得ると説明されています。そのため、機密情報がある場合は公開前に取り除く必要があります。</p>
+<p>そのため、<code>docs/</code> には公開できる内容だけを置く運用にします。下書き、調査メモ、内部メモ、未確認情報は <code>docs/</code> に置かず、<code>research/</code> や <code>drafts/</code> に分けて管理します。</p>
+<h4 id="ai_2"><a class="toclink" href="2026/05/18/ai-blog-workflow/#ai_2">AI生成コンテンツは読者に役立つ内容にする</a></h4>
+<p>Google Search Centralは、AI生成かどうかではなく、独自性があり高品質で人の役に立つコンテンツかどうかを重視すると説明しています。一方で、検索順位の操作を主目的とする自動生成コンテンツは、スパムポリシー違反になり得ます。</p>
+<p>つまり、AIを使うこと自体よりも、読者に役立つ内容になっているか、信頼できる情報に基づいているか、公開前に確認されているかが重要です。</p>
+<p>AIは、テーマ整理や下書き作成には使えます。ただし、最終的には人間が、事実関係、出典、表現、公開してよい内容かどうかを確認します。</p>
+<h4 id="_4"><a class="toclink" href="2026/05/18/ai-blog-workflow/#_4">安全な記事作成フローの考え方</a></h4>
+<p>AIを使った記事作成では、次のような流れにすると、確認すべき内容を追いやすくなります。</p>
+<ol>
+<li><code>briefs/</code> に記事の目的、想定読者、扱う範囲を整理する</li>
+<li><code>research/</code> に出典、確認日、要点、未確認事項を記録する</li>
+<li><code>drafts/</code> に調査メモを根拠にした下書きを作る</li>
+<li>下書き内の未確認情報を本文から分ける</li>
+<li>人間が内容、出典、表現を確認する</li>
+<li>公開できる状態になった記事だけを <code>docs/blog/posts/</code> に移す</li>
+</ol>
+<p>この流れでも、誤情報を完全に防げるわけではありません。人間の確認漏れや、情報が公開後に変わるリスクは残ります。それでも、調査メモ、下書き、公開記事を分けておくことで、どの情報を確認し、どの情報が未確認なのかを追いやすくなります。</p>
+<p>AIを使うことで、テーマ整理や下書き作成を効率化できる場合があります。その分、どこまで確認できているのかを明確に残すことが大切です。</p>
+<h3 id="_5"><a class="toclink" href="2026/05/18/ai-blog-workflow/#_5">参考情報</a></h3>
+<ul>
+<li>公式情報・一次情報:</li>
+<li><code>AGENTS.md</code></li>
+<li><code>briefs/2026-05-18-ai-blog-workflow-brief.md</code></li>
+<li>https://help.openai.com/en/articles/8313428-does-chatgpt-tell-the-truth</li>
+<li>https://developers.google.com/search/blog/2023/02/google-search-and-ai-content</li>
+<li>https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf</li>
+<li>https://www.mkdocs.org/getting-started/</li>
+<li>https://www.mkdocs.org/user-guide/writing-your-docs/</li>
+<li>https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site</li>
+<li>補足情報:</li>
+<li>なし</li>
+</ul>
+<h3 id="_6"><a class="toclink" href="2026/05/18/ai-blog-workflow/#_6">要確認</a></h3>
+<ul>
+<li>MkDocsやMarkdownブログにおいて、<code>research/</code>、<code>drafts/</code>、<code>docs/</code> のように作業領域を明確に分ける公式の推奨パターンが存在するかは未確認です。今回確認できたのは、MkDocsで <code>docs/</code> がサイトソースになるという仕様です。</li>
+<li>Google Search CentralのAI生成コンテンツ方針は確認しましたが、個別の検索順位への影響を断定できる情報は確認していません。検索評価への具体的な影響は要確認です。</li>
+<li>AI生成コンテンツに関する法的・著作権上の扱いは、国や用途によって変わる可能性があるため、この記事では断定していません。</li>
+</ul>
+<hr />
+<p>この記事は、AIツールを用いた情報整理・下書き作成をもとに、サイト運営者が内容確認・編集を行い公開しています。</p>
+    
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2026-05-18 00:00:00+00:00">2026年5月18日</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/blog/" class="md-meta__link">Blog</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
               このページは約1分で読めます
             
           </li>
