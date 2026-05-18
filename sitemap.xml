@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://&lt;GitHubユーザー名&gt;.github.io/public-blog-site/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;GitHubユーザー名&gt;.github.io/public-blog-site/about/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;GitHubユーザー名&gt;.github.io/public-blog-site/privacy/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;GitHubユーザー名&gt;.github.io/public-blog-site/blog/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;GitHubユーザー名&gt;.github.io/public-blog-site/blog/2026/05/18/sample/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;GitHubユーザー名&gt;.github.io/public-blog-site/blog/archive/2026/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+    <url>
+         <loc>https://&lt;GitHubユーザー名&gt;.github.io/public-blog-site/blog/category/blog/</loc>
+         <lastmod>2026-05-18</lastmod>
+    </url>
+</urlset>
